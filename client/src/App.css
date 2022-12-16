@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+input {
+  width: 400px;
+  height: 40px;
+  font-weight: 100;
+}
