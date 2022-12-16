@@ -1,10 +1,25 @@
 .App {
-  text-align: center;
+  
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  
 }
 
 input {
   width: 400px;
   height: 40px;
   font-weight: 100;
+}
+label{
+  justify-content: left;
+  font-weight: bolder;
+}
+button{
+  height: 30px;
+  width: 80px;
+  margin: 5px;
+  color: aliceblue;
+  background-color: blue;
 }

@@ -2,9 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const Books = require('./models/Book')
+const cors = require('cors')
 
 
 app.use(express.json());// use json response
+app.use(cors()); //use to communicate Api
+
+
 
 mongoose.connect("mongodb+srv://yibe:yibelta1@crud.tmpf9bm.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true
@@ -15,8 +19,11 @@ mongoose.connection.on('error', function(error){
 });
 //create route
 
-app.get("/", async (rqe, res)=>{
-const book = new Books({bookName: "Book 3", price: 200, author: "Book By D/r Zbener"});
+app.post("/", async (req, res)=>{
+const bookName = req.body.bookName
+const price = req.body.price
+const author = req.body.author
+const book = new Books({bookName: bookName, price: price, author: author});
 
 try{
 //save data to database
@@ -28,8 +35,6 @@ res.send('Data Inserted');
     console.log(error)
 }
 });
-
-
 
 app.listen('3001', () =>{
 
